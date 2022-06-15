@@ -44,6 +44,17 @@
 
     <!-- end navbar -->
 
+    <!-- section header -->
+
+    <div class="jumbotron">
+        <h1 class="display-4">Our List</h1>
+        <p class="lead">Thank you for those of you who have registered and login into our website. Please add yourself to the list if you are interested and enjoy all the features we have provided.</p>
+        <hr class="my-4">
+        <p>Never interfere with lists that are not about yourself. Because all of this data list has an interest in the purpose of this website.</p>
+    </div>
+
+    <!-- end header -->
+
     <script src="static/js/jquery-3.2.1.slim.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
 </body>
