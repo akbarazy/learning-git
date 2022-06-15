@@ -8,6 +8,7 @@
     <title>Akbarazy | Our List</title>
 
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 
 <body>
@@ -63,15 +64,9 @@
         <div class="mx-5">
             <div class="row">
 
-                <!-- make style in media max-width 430px for card -->
-                <!-- make style flex 0 0 100% and max-width 100% for card in media max-width 430px -->
-
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3">
+                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-
-                        <!-- make style width 70% for image card -->
-                        <!-- make style margin x auto for image card -->
-                        <img class="card-img-top" src="images/logo1.jpeg" alt="Card image cap">
+                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Muhammad Akbar Alfarizy</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -81,9 +76,9 @@
                     </div>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3">
+                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                        <img class="card-img-top" src="images/logo1.jpeg" alt="Card image cap">
+                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Andrian Setiawan Purnowo Alfahri</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -93,9 +88,9 @@
                     </div>
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3">
+                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
                     <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                        <img class="card-img-top" src="images/logo1.jpeg" alt="Card image cap">
+                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
                         <div class="card-body">
                             <p class="card-text">Salsabila Rizkitai Azzahra</p>
                             <div class="d-flex justify-content-between align-items-center">
@@ -105,7 +100,40 @@
                     </div>
                 </div>
 
+                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
+                    <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
+                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Rizkia Putra Permana Aji</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination d-flex justify-content-center">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true"><img src="images/prev.png" alt="prev" width="8"></span>
+                            <span class="sr-only">Prev</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true"><img src="images/next.png" alt="prev" width="8"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
         </div>
     </div>
 
