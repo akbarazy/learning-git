@@ -32,8 +32,8 @@
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Section</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#header">Header</a>
-                        <a class="dropdown-item" href="#">Content</a>
-                        <a class="dropdown-item" href="#">Pagination</a>
+                        <a class="dropdown-item" href="#content">Content</a>
+                        <a class="dropdown-item" href="#pagination">Pagination</a>
                     </div>
                 </li>
             </ul>
@@ -114,8 +114,8 @@
 
             </div>
 
-            <nav aria-label="Page navigation example">
-                <ul class="pagination d-flex justify-content-center">
+            <nav aria-label="Page navigation example" id="pagination">
+                <ul class="pagination d-flex justify-content-center mb-5">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
                             <span aria-hidden="true"><img src="images/prev.png" alt="prev" width="8"></span>
@@ -138,6 +138,73 @@
     </div>
 
     <!-- end content -->
+
+
+    <!-- section footer -->
+
+    <footer class="page-footer bg-dark">
+        <div class="bg-dark">
+            <div class="container">
+
+                <div class="row py-4 d-flex align-items-center">
+                    <div class="col-md-12 text-center footer-icons">
+
+                        <a href=""><img class="text-white mr-4" src="images/yt-icon.png" alt="yt-icon" width="29"></a>
+                        <a href=""><img class="text-white mr-4" src="images/google-icon.png" alt="yt-icon" width="24"></a>
+                        <a href=""><img class="text-white mr-4" src="images/wa-icon.png" alt="yt-icon" width="30"></a>
+                        <a href=""><img class="text-white mr-4" src="images/fb-icon.png" alt="yt-icon" width="25"></a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="bg-darkblack">
+            <div class="container pt-5">
+                <div class="row">
+
+                    <div class="col-sm-4 col-md-4 mb-5 footer1">
+                        <h6 class="text-uppercase font-weight-bold text-white">Developer</h6>
+                        <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width:87px; height: 2px;">
+                        <p class="mt-2 text-white">Don't forget to visit our social media. if there is an error on our website, you can visit us <a class="font-weight-bold" href="">Here</a></p>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4 mb-5 footer2">
+                        <h6 class="text-uppercase font-weight-bold text-white">My Skills</h6>
+                        <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width:87px; height: 2px;">
+                        <ul class="list-unstyled">
+                            <li class="my-2 text-white">HTML</li>
+                            <li class="my-2 text-white">CSS</li>
+                            <li class="my-2 text-white">Javascript</li>
+                            <li class="my-2 text-white">PHP</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-4 col-md-4 mb-5 footer3">
+                        <h6 class="text-uppercase font-weight-bold text-white">About Me</h6>
+                        <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width:87px; height: 2px;">
+                        <p class="mt-2 text-white">I am the original developer of this website. I come from Indonesia. I am 15 years old and still a high school student</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-dark">
+            <div class="container pt-3">
+                <div class="row d-flex justify-content-center">
+
+                    <div class="col-md-4">
+                        <p class="text-grey text-center mb-0">&copy; Copyright | Akbarazy 2022</p>
+                        <p class="text-grey text-center">Design by Akbarazy</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- end footer -->
 
     <script src="static/js/jquery-3.2.1.slim.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
