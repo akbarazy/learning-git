@@ -1,3 +1,8 @@
+<?php
+require "functions.php";
+$userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Akbarazy | Our List</title>
 
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
@@ -64,53 +70,19 @@
         <div class="mx-5">
             <div class="row">
 
-                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
-                    <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Muhammad Akbar Alfarizy</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">9 mins</small>
+                <?php foreach ($userListValue as $userListValueRow) : ?>
+                    <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+                        <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
+                            <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
+                            <div class="card-body">
+                                <p class="card-text"><?php echo $userListValueRow["name"]; ?></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <small class="text-muted">9 mins</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
-                    <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Andrian Setiawan Purnowo Alfahri</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
-                    <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Salsabila Rizkitai Azzahra</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3">
-                    <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                        <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">Rizkia Putra Permana Aji</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
 
             </div>
 
@@ -118,16 +90,16 @@
                 <ul class="pagination d-flex justify-content-center mb-5">
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true"><img src="images/prev.png" alt="prev" width="8"></span>
+                            <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
                             <span class="sr-only">Prev</span>
                         </a>
                     </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link font-weight-bold" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link font-weight-bold" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link font-weight-bold" href="#">3</a></li>
                     <li class="page-item">
                         <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true"><img src="images/next.png" alt="prev" width="8"></span>
+                            <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                             <span class="sr-only">Next</span>
                         </a>
                     </li>
@@ -149,10 +121,10 @@
                 <div class="row py-4 d-flex align-items-center">
                     <div class="col-md-12 text-center footer-icons">
 
-                        <a href=""><img class="text-white mr-4" src="images/yt-icon.png" alt="yt-icon" width="29"></a>
-                        <a href=""><img class="text-white mr-4" src="images/google-icon.png" alt="yt-icon" width="24"></a>
-                        <a href=""><img class="text-white mr-4" src="images/wa-icon.png" alt="yt-icon" width="30"></a>
-                        <a href=""><img class="text-white mr-4" src="images/fb-icon.png" alt="yt-icon" width="25"></a>
+                        <a href=""><i class="fa fa-youtube-play fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-google fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-whatsapp fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href=""><i class="fa fa-facebook-official fa-lg mr-4" aria-hidden="true"></i></a>
 
                     </div>
                 </div>
