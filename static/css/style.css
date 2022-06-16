@@ -11,6 +11,23 @@ html {
   border: none;
 }
 
+.cursor-default {
+  cursor: default !important;
+}
+
+.off {
+  color: #0056b3;
+  text-decoration: none;
+  background-color: #e9ecef;
+  border-color: #dee2e6;
+}
+
+.pressed {
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%) !important;
+  z-index: 2 !important;
+  outline: 0 !important;
+}
+
 .card-img-top {
   width: 70%;
 }

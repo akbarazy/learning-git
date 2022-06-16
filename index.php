@@ -1,6 +1,14 @@
 <?php
 require "functions.php";
-$userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC");
+
+// logic for pagination
+$totalPagesList = 10;
+$totalList = count(query("SELECT * FROM userlist"));
+$totalPages = ceil($totalList / $totalPagesList);
+$nowPage = isset($_GET["page"]) ? $_GET["page"] : 1;
+$indexStartList = ($totalPagesList * $nowPage) - $totalPagesList;
+
+$userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT $indexStartList, $totalPagesList");
 ?>
 
 <!DOCTYPE html>
@@ -89,19 +97,43 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC");
             <nav aria-label="Page navigation example" id="pagination">
                 <ul class="pagination d-flex justify-content-center mb-5">
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
-                            <span class="sr-only">Prev</span>
-                        </a>
+
+                        <?php if ($nowPage > 1) : ?>
+                            <a class="page-link" href="index.php?page=<?php echo $nowPage - 1; ?>" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                                <span class="sr-only">Prev</span>
+                            </a>
+                        <?php else : ?>
+                            <a class="page-link off cursor-default" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
+                                <span class="sr-only">Prev</span>
+                            </a>
+                        <?php endif; ?>
+
                     </li>
-                    <li class="page-item"><a class="page-link font-weight-bold" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link font-weight-bold" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link font-weight-bold" href="#">3</a></li>
+
+                    <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                        <?php if ($i == $nowPage) : ?>
+                            <li class="page-item"><a class="page-link font-weight-bold pressed" href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <?php else : ?>
+                            <li class="page-item"><a class="page-link font-weight-bold" href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                        <?php endif; ?>
+                    <?php endfor; ?>
+
                     <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+
+                        <?php if ($nowPage < $totalPages) : ?>
+                            <a class="page-link" href="<?php echo $nowPage + 1; ?>" aria-label="Next">
+                                <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        <?php else : ?>
+                            <a class="page-link off cursor-default" aria-label="Next">
+                                <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        <?php endif; ?>
+
                     </li>
                 </ul>
             </nav>
