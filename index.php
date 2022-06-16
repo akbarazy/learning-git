@@ -114,7 +114,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
 
                     <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
                         <?php if ($i == $nowPage) : ?>
-                            <li class="page-item"><a class="page-link font-weight-bold pressed" href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li class="page-item"><a class="page-link font-weight-bold pressed cursor-default"><?php echo $i; ?></a></li>
                         <?php else : ?>
                             <li class="page-item"><a class="page-link font-weight-bold" href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
                         <?php endif; ?>
