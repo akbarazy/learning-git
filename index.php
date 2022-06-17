@@ -1,11 +1,11 @@
 <?php
-require "functions.php";
+require 'functions.php';
 
 // logic for pagination
 $totalPagesList = 10;
 $totalList = count(query("SELECT * FROM userlist"));
 $totalPages = ceil($totalList / $totalPagesList);
-$nowPage = isset($_GET["page"]) ? $_GET["page"] : 1;
+$nowPage = isset($_GET['page']) ? $_GET['page'] : 1;
 $indexStartList = ($totalPagesList * $nowPage) - $totalPagesList;
 
 $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT $indexStartList, $totalPagesList");

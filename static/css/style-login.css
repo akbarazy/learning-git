@@ -46,7 +46,7 @@ body {
 }
 
 .form-signin input[type="password"],
-.icon-password {
+.icon-confirm-password {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -62,11 +62,15 @@ body {
 
 .fa-user-circle-o,
 .fa-lock,
-.fa-unlock-alt {
+.fa-repeat {
   width: 16px !important;
 }
 
 @media (max-width: 575px) {
+  .form-signin {
+    padding-bottom: 25px !important;
+  }
+
   .form-signin .text-left,
   .form-signin .text-right {
     text-align: center !important;

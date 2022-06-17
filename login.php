@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-left" href="#">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link text-left" href="register.php">Register</a>
                 </li>
             </ul>
         </div>
@@ -39,7 +39,7 @@
 
     <!-- section login -->
 
-    <form action="" method="post" class="form-signin">
+    <form action="" method="post" class="form-signin login">
         <h1 class="h3 mb-3 font-weight-normal">LOGIN</h1>
         <div class="input-group mb-0">
             <div class="input-group-prepend">
@@ -70,7 +70,8 @@
         </div>
 
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <p class="mt-5 mb-3 text-muted">&copy; Copyright | Akbarazy 2022</p>
+        <p class="mt-5">If you haven't registered, Please register</p>
+        <p class="mb-3 text-muted">&copy; Copyright | Akbarazy 2022</p>
     </form>
 
     <!-- end login -->
