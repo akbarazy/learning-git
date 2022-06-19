@@ -1,7 +1,7 @@
 <?php
 $connect = mysqli_connect("localhost", "root", "", "ourlist");
 
-// 
+// logic to display all the contents of my database table.
 function query($query)
 {
     global $connect;
@@ -13,7 +13,7 @@ function query($query)
     return $userListValue;
 }
 
-// logic for table database userregist
+// logic for table database userregist.
 function regist()
 {
     global $connect;
@@ -23,21 +23,59 @@ function regist()
         $password = mysqli_real_escape_string($connect, $_POST['password']);
         $confirmPassword = mysqli_real_escape_string($connect, $_POST['confirm-password']);
 
-        $result = mysqli_query($connect, "SELECT username FROM userregist WHERE username = '$username'");
+        $result = mysqli_query($connect, "SELECT name FROM userregist WHERE name = '$username'");
 
-        if ($confirmPassword === $password && $result == false) {
+        if ($confirmPassword === $password && mysqli_num_rows($result) === 0) {
+
             $confirmPassword = password_hash($confirmPassword, PASSWORD_DEFAULT);
             mysqli_query($connect, "INSERT INTO userregist VALUES (
                 '', '$username', '$confirmPassword'
             )");
-            return true;
-        } else if ($result) {
+            return '';
+        } else if (mysqli_num_rows($result) > 0) {
+
             return '<div class="alert alert-danger" role="alert">
                 Your name has been used.
             </div>';
         } else if ($confirmPassword !== $password) {
+
             return '<div class="alert alert-danger" role="alert">
-                Your confirm password isnt match.
+                Your confirm password isn\'t match.
+            </div>';
+        }
+    }
+}
+
+// logic to compare logged in users.
+function login()
+{
+    session_start();
+    global $connect;
+
+    if (isset($_POST['submit'])) {
+        $username = strtolower(stripslashes($_POST['username']));
+        $password = mysqli_real_escape_string($connect, $_POST['password']);
+
+        $result = mysqli_query($connect, "SELECT * FROM userregist WHERE name = '$username'");
+
+        if (mysqli_num_rows($result) > 0) {
+            $userListValueRow = mysqli_fetch_assoc($result);
+
+            if (password_verify($password, $userListValueRow['password'])) {
+
+                $_SESSION['login'] = true;
+                header('location: index.php');
+                exit;
+            } else {
+
+                return '<div class="alert alert-danger" role="alert">
+                    Your password isnt match.
+                </div>';
+            }
+        } else if (mysqli_num_rows($result) === 0) {
+
+            return '<div class="alert alert-danger" role="alert">
+                Your name isnt match.
             </div>';
         }
     }

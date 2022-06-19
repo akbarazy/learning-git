@@ -2,8 +2,9 @@
 session_start();
 require "functions.php";
 
+// logic for users who want to register.
 $result = regist();
-if ($result === true) {
+if ($result === '') {
     $_SESSION['regist'] = true;
 
     header('location: login.php');
@@ -22,7 +23,7 @@ if ($result === true) {
 
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/style-login.css">
+    <link rel="stylesheet" href="static/css/style-form.css">
 </head>
 
 <body class="text-center">

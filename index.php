@@ -1,7 +1,7 @@
 <?php
 require 'functions.php';
 
-// logic for pagination
+// logic for pagination.
 $totalPagesList = 10;
 $totalList = count(query("SELECT * FROM userlist"));
 $totalPages = ceil($totalList / $totalPagesList);
@@ -188,7 +188,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
                     <div class="col-sm-4 col-md-4 mb-5 footer3">
                         <h6 class="text-uppercase font-weight-bold text-white">About Me</h6>
                         <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width:87px; height: 2px;">
-                        <p class="mt-2 text-white">I am the original developer of this website. I come from Indonesia. I am 15 years old and still a high school student</p>
+                        <p class="mt-2 text-white">I am a developer of this website. I come from Indonesia. I am 15 years old and still a high school student</p>
                     </div>
                 </div>
             </div>

@@ -1,3 +1,10 @@
+<?php
+require 'functions.php';
+
+// logic for users who want to login
+$result = login();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +16,7 @@
 
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
-    <link rel="stylesheet" href="static/css/style-login.css">
+    <link rel="stylesheet" href="static/css/style-form.css">
 </head>
 
 <body class="text-center">
@@ -41,6 +48,9 @@
 
     <form action="" method="post" class="form-signin login">
         <h1 class="h3 mb-3 font-weight-normal">LOGIN</h1>
+
+        <?php echo $result; ?>
+
         <div class="input-group mb-0">
             <div class="input-group-prepend">
                 <div class="input-group-text icon-username">
@@ -61,7 +71,7 @@
 
         <div class="checkbox mb-3 row">
             <label class="text-left col-12 col-sm-6">
-                <input type="checkbox" value="show-password"> Show Password
+                <input type="checkbox" name="show-password" value="show-password"> Show Password
             </label>
 
             <label class="text-right col-12 col-sm-6">
@@ -69,7 +79,7 @@
             </label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Sign in</button>
         <p class="mt-5">If you haven't registered, Please register</p>
         <p class="mb-3 text-muted">&copy; Copyright | Akbarazy 2022</p>
     </form>
@@ -78,6 +88,7 @@
 
     <script src="static/js/jquery-3.2.1.slim.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/show-password.js"></script>
 </body>
 
 </html>
