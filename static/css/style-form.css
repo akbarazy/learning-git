@@ -82,6 +82,10 @@ body {
   width: 16px !important;
 }
 
+.navbar-brand {
+  color: white !important;
+}
+
 @media (max-width: 575px) {
   .regist {
     padding-bottom: 45px !important;

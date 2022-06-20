@@ -40,6 +40,10 @@ html {
   color: #80868c;
 }
 
+.navbar-brand {
+  color: white !important;
+}
+
 @media (min-width: 768px) {
   .footer2 {
     padding-left: 60px;

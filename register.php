@@ -2,6 +2,12 @@
 session_start();
 require "functions.php";
 
+// logic for session login
+if (isset($_SESSION['login'])) {
+    header('location: index.php');
+    exit;
+}
+
 // logic for users who want to register.
 $result = regist();
 if ($result === '') {
@@ -31,7 +37,7 @@ if ($result === '') {
     <!-- section navbar -->
 
     <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="#">Our List</a>
+        <a class="navbar-brand">Our List</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,7 +45,7 @@ if ($result === '') {
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-left" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-left" href="index1.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-left" href="login.php">Login</a>

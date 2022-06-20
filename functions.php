@@ -49,7 +49,6 @@ function regist()
 // logic to compare logged in users.
 function login()
 {
-    session_start();
     global $connect;
 
     if (isset($_POST['submit'])) {
@@ -64,6 +63,13 @@ function login()
             if (password_verify($password, $userListValueRow['password'])) {
 
                 $_SESSION['login'] = true;
+                if (isset($_POST['remember-me'])) {
+
+                    setcookie('key1', $userListValueRow['id'], time() + 432000);
+                    setcookie('key2', hash('sha256', $userListValueRow['name']), time() + 432000);
+                    setcookie('key3', $userListValueRow['password'], time() + 432000);
+                }
+
                 header('location: index.php');
                 exit;
             } else {

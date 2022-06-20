@@ -1,5 +1,26 @@
 <?php
+session_start();
 require 'functions.php';
+
+// logic for logout
+if (isset($_GET['logout'])) {
+    $_SESSION = [];
+    session_unset();
+    session_destroy();
+
+    setcookie('key1', '', time() - 3600);
+    setcookie('key2', '', time() - 3600);
+    setcookie('key3', '', time() - 3600);
+
+    header('location: login.php');
+    exit;
+}
+
+// logic for session login
+if (!isset($_SESSION['login'])) {
+    header('location: login.php');
+    exit;
+}
 
 // logic for pagination.
 $totalPagesList = 10;
@@ -29,7 +50,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
     <!-- section navbar -->
 
     <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="#">Our List</a>
+        <a class="navbar-brand">Our List</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -37,16 +58,16 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout</a>
+                    <a class="nav-link" href="index.php?logout=exit">Logout</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Section</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#header">Header</a>
-                        <a class="dropdown-item" href="#content">Content</a>
+                        <a class="dropdown-item" href="#content-slider">Content</a>
                         <a class="dropdown-item" href="#pagination">Pagination</a>
                     </div>
                 </li>
@@ -66,7 +87,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
         <h1 class="display-4">Our List</h1>
         <p class="lead">Thank you for those of you who have registered and login into our website. Please add yourself to the list if you are interested and enjoy all the features we have provided.</p>
         <hr class="my-4">
-        <p>Never interfere with lists that are not about yourself. Because all of this data list has an interest in the purpose of this website.</p>
+        <p id="content-slider">Never interfere with lists that are not about yourself. Because all of this data list has an interest in the purpose of this website.</p>
     </div>
 
     <!-- end header -->

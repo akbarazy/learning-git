@@ -1,5 +1,26 @@
 <?php
+session_start();
 require 'functions.php';
+
+// logic for cookie
+if (isset($_COOKIE['key1']) && isset($_COOKIE['key2']) && isset($_COOKIE['key3'])) {
+    $id = $_COOKIE['key1'];
+    $username = $_COOKIE['key2'];
+    $password = $_COOKIE['key3'];
+
+    $result = mysqli_query($connect, "SELECT name FROM userregist WHERE id = '$id'");
+    $userListValueRow = mysqli_fetch_assoc($result);
+
+    if ($username === hash('sha256', $userListValueRow['name'])) {
+        $_SESSION['login'] = true;
+    }
+}
+
+// logic for session login
+if (isset($_SESSION['login'])) {
+    header('location: index.php');
+    exit;
+}
 
 // logic for users who want to login
 $result = login();
@@ -24,7 +45,7 @@ $result = login();
     <!-- section navbar -->
 
     <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-        <a class="navbar-brand" href="#">Our List</a>
+        <a class="navbar-brand">Our List</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +53,7 @@ $result = login();
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-left" href="#">Home<span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-left" href="index1.php">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-left" href="register.php">Register</a>
@@ -75,7 +96,7 @@ $result = login();
             </label>
 
             <label class="text-right col-12 col-sm-6">
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" name="remember-me" value="remember-me"> Remember me
             </label>
         </div>
 
