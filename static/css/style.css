@@ -44,6 +44,10 @@ html {
   color: white !important;
 }
 
+.navbar-brand:hover {
+  cursor: default;
+}
+
 @media (min-width: 768px) {
   .footer2 {
     padding-left: 60px;

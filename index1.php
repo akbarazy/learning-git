@@ -210,7 +210,8 @@ if (isset($_SESSION['login'])) {
 
     <!-- end footer -->
 
-    <script src="static/js/jquery-3.2.1.slim.min.js"></script>
+    <!-- <script src="static/js/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="static/js/jquery-3.6.0.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
     <script src="static/js/holder.min.js"></script>
 </body>

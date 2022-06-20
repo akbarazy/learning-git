@@ -33,7 +33,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="header-slider">
 
 <head>
     <meta charset="UTF-8">
@@ -66,14 +66,14 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Section</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="#header">Header</a>
+                        <a class="dropdown-item" href="#header-slider">Header</a>
                         <a class="dropdown-item" href="#content-slider">Content</a>
                         <a class="dropdown-item" href="#pagination">Pagination</a>
                     </div>
                 </li>
             </ul>
             <form class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" placeholder="Search">
+                <input class="form-control live-search" type="text" placeholder="Search" autofocus>
             </form>
         </div>
     </nav>
@@ -96,8 +96,8 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
     <!-- section content -->
 
     <div class="content" id="content">
-        <div class="mx-5">
-            <div class="row">
+        <div class="mx-5 card-content">
+            <div class="row justify-content-center">
 
                 <?php foreach ($userListValue as $userListValueRow) : ?>
                     <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
@@ -106,6 +106,12 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
                             <div class="card-body">
                                 <p class="card-text"><?php echo $userListValueRow["name"]; ?></p>
                                 <div class="d-flex justify-content-between align-items-center">
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                    </div>
+
                                     <small class="text-muted">9 mins</small>
                                 </div>
                             </div>
@@ -174,10 +180,10 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
                 <div class="row py-4 d-flex align-items-center">
                     <div class="col-md-12 text-center footer-icons">
 
-                        <a href=""><i class="fa fa-youtube-play fa-lg mr-4" aria-hidden="true"></i></a>
-                        <a href=""><i class="fa fa-google fa-lg mr-4" aria-hidden="true"></i></a>
-                        <a href=""><i class="fa fa-whatsapp fa-lg mr-4" aria-hidden="true"></i></a>
-                        <a href=""><i class="fa fa-facebook-official fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href="https://www.youtube.com/"><i class="fa fa-youtube-play fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href="https://www.google.com"><i class="fa fa-google fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href="https://web.whatsapp.com"><i class="fa fa-whatsapp fa-lg mr-4" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com"><i class="fa fa-facebook-official fa-lg mr-4" aria-hidden="true"></i></a>
 
                     </div>
                 </div>
@@ -192,7 +198,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
                     <div class="col-sm-4 col-md-4 mb-5 footer1">
                         <h6 class="text-uppercase font-weight-bold text-white">Developer</h6>
                         <hr class="bg-primary mb-4 mt-0 d-inline-block mx-auto" style="width:87px; height: 2px;">
-                        <p class="mt-2 text-white">Don't forget to visit our social media. if there is an error on our website, you can visit us <a class="font-weight-bold" href="">Here</a></p>
+                        <p class="mt-2 text-white">Don't forget to visit our social media. if there is an error on our website, you can visit us <a class="font-weight-bold" href="https://akbarazyportfolio.000webhostapp.com">Here</a></p>
                     </div>
 
                     <div class="col-sm-4 col-md-4 mb-5 footer2">
@@ -231,8 +237,10 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
 
     <!-- end footer -->
 
-    <script src="static/js/jquery-3.2.1.slim.min.js"></script>
+    <!-- <script src="static/js/jquery-3.2.1.slim.min.js"></script> -->
+    <script src="static/js/jquery-3.6.0.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/ajax/live-search.js"></script>
 </body>
 
 </html>

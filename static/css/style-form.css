@@ -86,6 +86,10 @@ body {
   color: white !important;
 }
 
+.navbar-brand:hover {
+  cursor: default;
+}
+
 @media (max-width: 575px) {
   .regist {
     padding-bottom: 45px !important;
