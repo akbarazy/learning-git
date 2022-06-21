@@ -48,6 +48,10 @@ html {
   cursor: default;
 }
 
+.form-inline .btn-outline-light:hover {
+  color: #007bff !important;
+}
+
 @media (min-width: 768px) {
   .footer2 {
     padding-left: 60px;
