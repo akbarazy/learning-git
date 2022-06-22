@@ -122,8 +122,8 @@ function create()
 
         if ($image === false) {
             return '<div class="alert alert-danger" role="alert">
-            Your format image isn\'t match.
-        </div>';
+                Your format image isn\'t match.
+            </div>';
         }
 
         $date = date('Y-m-d', time());
@@ -143,4 +143,38 @@ function delete()
     $userListId = $_GET['delete'];
 
     mysqli_query($connect, "DELETE FROM userlist WHERE id = $userListId");
+}
+
+// logic to edit list
+function edit()
+{
+    global $connect;
+
+    if (isset($_POST['submit'])) {
+        $id = $_POST['id'];
+        $name = $_POST['name'];
+        $image = $_POST['old-image'];
+
+        if ($_FILES['image']['error'] !== 4) {
+            $image = uploadImage();
+
+            if ($image === false) {
+                return '<div class="alert alert-danger" role="alert">
+                    Your format image isn\'t match.
+                </div>';
+            }
+        }
+
+        var_dump($id);
+        var_dump($name);
+        var_dump($image);
+
+        $query = "UPDATE userlist SET
+            name = '$name',
+            image = '$image'
+        WHERE id = $id";
+
+        mysqli_query($connect, $query);
+        return '';
+    }
 }

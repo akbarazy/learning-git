@@ -19,7 +19,7 @@ if (isset($_GET['logout'])) {
 
 // logic for session login
 if (!isset($_SESSION['login'])) {
-    header('location: login.php');
+    header("location: login.php?page=$nowPage");
     exit;
 }
 
@@ -36,7 +36,7 @@ $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT 
 if (isset($_GET['delete'])) {
 
     delete();
-    header("location: index.php?page=$nowPage");
+    header('location: index.php');
 }
 ?>
 
@@ -126,8 +126,8 @@ if (isset($_GET['delete'])) {
 
                                     <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) : ?>
                                         <div class="btn-group">
-                                            <a href="" class="btn btn-sm btn-outline-secondary">Edit</a>
-                                            <a href="index.php?delete=<?php echo $userListValueRow['id']; ?>&page=<?php echo $nowPage; ?>#content-slider" class="btn btn-sm btn-outline-secondary">Delete</a>
+                                            <a href="edit-list.php?edit=<?php echo $userListValueRow['id']; ?>" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                            <a href="index.php?delete=<?php echo $userListValueRow['id']; ?>#content-slider" class="btn btn-sm btn-outline-secondary">Delete</a>
                                         </div>
                                     <?php endif; ?>
 
