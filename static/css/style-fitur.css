@@ -1,0 +1,40 @@
+input[name="username"]:focus {
+  z-index: 3 !important;
+}
+
+.icon-upload {
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border-radius: 0 0 0 4px;
+}
+
+.custom-file-input {
+  left: 0;
+  position: absolute;
+}
+
+.label-upload {
+  position: absolute;
+  text-align: left !important;
+  top: 0;
+  right: 0;
+  left: 38.5px;
+  z-index: 1;
+  height: calc(2.25rem + 6px);
+  padding: 0.375rem 0.75rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  color: #747d84;
+}
+
+.btn-block {
+  margin-top: 2.2rem;
+}
+
+.create-list {
+  padding-bottom: 4.5rem !important;
+}

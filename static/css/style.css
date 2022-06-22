@@ -2,10 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.card {
-  padding-top: 10px;
-}
-
 .box-shadow {
   box-shadow: 0 1px 10px -4px rgba(0, 0, 255, 0.6);
   border: none;
@@ -28,8 +24,8 @@ html {
   outline: 0 !important;
 }
 
-.card-img-top {
-  width: 70%;
+.pressed:hover {
+  background-color: white;
 }
 
 .bg-darkblack {
@@ -50,6 +46,20 @@ html {
 
 .form-inline .btn-outline-light:hover {
   color: #007bff !important;
+}
+
+.card-image {
+  object-fit: cover !important;
+  height: 110px;
+  background-color: #3b3f44;
+}
+
+.mt-date {
+  margin-top: 0.6rem !important;
+}
+
+.live-search {
+  width: 207px !important;
 }
 
 @media (min-width: 768px) {
@@ -99,5 +109,11 @@ html {
   .col-430px {
     flex: 0 0 100%;
     max-width: 100%;
+  }
+}
+
+@media (max-width: 354px) {
+  .live-search {
+    margin-top: 1rem !important;
   }
 }

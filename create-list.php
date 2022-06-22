@@ -1,8 +1,15 @@
 <?php
 session_start();
+require 'functions.php';
 
 if (!isset($_SESSION['login'])) {
     header('location: login.php');
+    exit;
+}
+
+$resultAlert = create();
+if ($resultAlert === '') {
+    header('location: index.php');
     exit;
 }
 ?>
@@ -19,6 +26,7 @@ if (!isset($_SESSION['login'])) {
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style-form.css">
+    <link rel="stylesheet" href="static/css/style-fitur.css">
 </head>
 
 <body class="text-center">
@@ -45,36 +53,54 @@ if (!isset($_SESSION['login'])) {
 
     <!-- section content -->
 
-    <form action="" method="post" class="form-signin login">
+    <form action="" method="post" enctype="multipart/form-data" class="form-signin create-list pt-0">
         <h1 class="h3 mb-3 font-weight-normal">CREATE LIST</h1>
 
-        <?php echo $result; ?>
+        <?php echo $resultAlert; ?>
 
         <div class="input-group mb-0">
             <div class="input-group-prepend">
-                <div class="input-group-text icon-username">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-                </div>
+                <label class="input-group-text icon-username" for="username">
+                    <div>
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                    </div>
+                </label>
             </div>
-            <input type="text" name="username" class="form-control" id="username" placeholder="Enter your name" required autocomplete="off" autofocus>
+            <input type="text" name="name" class="form-control" id="username" placeholder="Enter your name" required autocomplete="off" autofocus>
         </div>
 
-        <div class="input-group mb-2">
+        <div class="input-group mb-0">
             <div class="input-group-prepend">
-                <div class="input-group-text icon-password">
-                    <i class="fa fa-lock" aria-hidden="true"></i>
-                </div>
+                <span class="input-group-text icon-upload">
+                    <i class="fa fa-upload" aria-hidden="true"></i>
+                </span>
+                <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" required>
+                <label class="label-upload" for="inputGroupFile01">Choose your image</label>
             </div>
-            <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required autocomplete="off">
+
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block mt-5" name="submit" type="submit">Submit</button>
+        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">SUBMIT</button>
+        <p class="mt-3 pt-1 text-muted">&copy; Copyright | Akbarazy 2022</p>
     </form>
 
     <!-- end content -->
 
     <script src="static/js/jquery-3.2.1.slim.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // script inputImage
+        const inputImage = document.querySelector('input[name="image"]');
+        const labelImage = document.querySelector('label[for="inputGroupFile01"]');
+
+        inputImage.addEventListener("change", function() {
+            const labelImageTextNode = labelImage.childNodes[0];
+            const inputNameImage = document.querySelector("input[type=file]").files[0];
+
+            labelImageTextNode.nodeValue = inputNameImage.name;
+            labelImage.style.color = "#50575e";
+        });
+    </script>
 </body>
 
 </html>

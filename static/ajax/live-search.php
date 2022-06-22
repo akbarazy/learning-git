@@ -1,10 +1,11 @@
 <?php
+session_start();
 require '../../functions.php';
 
 $userListValueName = $_GET['live-search'];
 
 $query = "SELECT * FROM userlist WHERE
-    name LIKE '%$userListValueName%'
+    name LIKE '$userListValueName%'
     ORDER BY userlist.name ASC";
 
 $userListValue = query($query);
@@ -25,12 +26,29 @@ $userListValue = query($query);
         <?php foreach ($userListValue as $userListValueRow) : ?>
             <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
                 <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                    <img class="card-img-top mx-auto" src="images/logo1.jpeg" alt="Card image cap">
+                    <img class="card-img-top card-image" src="images/<?php echo $userListValueRow['image']; ?>" alt="Card image cap">
                     <div class="card-body">
-                        <p class="card-text"><?php echo $userListValueRow["name"]; ?></p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <small class="text-muted">9 mins</small>
+                        <p class="card-text text-center"><?php echo $userListValueRow["name"]; ?></p>
+
+                        <div class="d-flex 
+                        <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'flex-column'; ?> 
+                        justify-content-between 
+                        align-items-center">
+
+                            <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) : ?>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                </div>
+                            <?php endif; ?>
+
+                            <small class="text-muted 
+                            <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'mt-date'; ?> ">
+                                <?php echo $userListValueRow['date']; ?>
+                            </small>
+
                         </div>
+
                     </div>
                 </div>
             </div>

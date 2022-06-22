@@ -24,14 +24,20 @@ if (!isset($_SESSION['login'])) {
 }
 
 // logic for pagination.
-$totalPagesList = 10;
+$totalPagesList = 2;
 $totalList = count(query("SELECT * FROM userlist"));
 $totalPages = ceil($totalList / $totalPagesList);
 $nowPage = isset($_GET['page']) ? $_GET['page'] : 1;
 $indexStartList = ($totalPagesList * $nowPage) - $totalPagesList;
 
 $userListValue = query("SELECT * FROM userlist ORDER BY userlist.name ASC LIMIT $indexStartList, $totalPagesList");
-var_dump($_SESSION['login']);
+
+// logic for delete
+if (isset($_GET['delete'])) {
+
+    delete();
+    header("location: index.php?page=$nowPage");
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +76,7 @@ var_dump($_SESSION['login']);
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#header-slider">Header</a>
                         <a class="dropdown-item" href="#content-slider">Content</a>
-                        <a class="dropdown-item" href="#pagination">Pagination</a>
+                        <a class="dropdown-item" href="#pagination-slider">Pagination</a>
                     </div>
                 </li>
             </ul>
@@ -80,7 +86,7 @@ var_dump($_SESSION['login']);
                     <a href="create-list.php" class="btn btn-outline-light mr-3 my-sm-0" name="create-list">Create List</a>
                 <?php endif; ?>
 
-                <input class="form-control live-search" type="text" placeholder="Search" autofocus>
+                <input class="form-control live-search" type="text" placeholder="Search your name" autofocus>
             </form>
         </div>
     </nav>
@@ -109,24 +115,24 @@ var_dump($_SESSION['login']);
                 <?php foreach ($userListValue as $userListValueRow) : ?>
                     <div class="col-430px col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
                         <div class="card mb-4 box-shadow" style="height: calc(100% - 1.5rem);">
-                            <img class="card-img-top mx-auto" src="images/<?php echo $userListValueRow['image']; ?>" alt="Card image cap">
+                            <img class="card-img-top card-image" src="images/<?php echo $userListValueRow['image']; ?>" alt="Card image cap">
                             <div class="card-body">
-                                <p class="card-text"><?php echo $userListValueRow['name']; ?></p>
+                                <p class="card-text text-center"><?php echo $userListValueRow['name']; ?></p>
 
-                                <div class="d-flex 
-                                <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'flex-column'; ?> 
-                                justify-content-between 
+                                <div class="d-flex
+                                <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'flex-column'; ?>
+                                justify-content-between
                                 align-items-center">
 
                                     <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) : ?>
                                         <div class="btn-group">
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            <button type="button" class="btn btn-sm btn-outline-secondary">Delete</button>
+                                            <a href="" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                            <a href="index.php?delete=<?php echo $userListValueRow['id']; ?>&page=<?php echo $nowPage; ?>#content-slider" class="btn btn-sm btn-outline-secondary">Delete</a>
                                         </div>
                                     <?php endif; ?>
 
-                                    <small class="text-muted 
-                                    <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'mt-3'; ?> ">
+                                    <small class="text-muted mx-auto
+                                    <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'mt-date'; ?>" id="pagination-slider">
                                         <?php echo $userListValueRow['date']; ?>
                                     </small>
 
@@ -144,7 +150,7 @@ var_dump($_SESSION['login']);
                     <li class="page-item">
 
                         <?php if ($nowPage > 1) : ?>
-                            <a class="page-link" href="index.php?page=<?php echo $nowPage - 1; ?>" aria-label="Previous">
+                            <a class="page-link" href="index.php?page=<?php echo $nowPage - 1; ?>#content-slider" aria-label="Previous">
                                 <span aria-hidden="true"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>
                                 <span class="sr-only">Prev</span>
                             </a>
@@ -161,14 +167,14 @@ var_dump($_SESSION['login']);
                         <?php if ($i == $nowPage) : ?>
                             <li class="page-item"><a class="page-link font-weight-bold pressed cursor-default"><?php echo $i; ?></a></li>
                         <?php else : ?>
-                            <li class="page-item"><a class="page-link font-weight-bold" href="index.php?page=<?php echo $i; ?>"><?php echo $i; ?></a></li>
+                            <li class="page-item"><a class="page-link font-weight-bold" href="index.php?page=<?php echo $i; ?>#content-slider"><?php echo $i; ?></a></li>
                         <?php endif; ?>
                     <?php endfor; ?>
 
                     <li class="page-item">
 
                         <?php if ($nowPage < $totalPages) : ?>
-                            <a class="page-link" href="<?php echo $nowPage + 1; ?>" aria-label="Next">
+                            <a class="page-link" href="index.php?page=<?php echo $nowPage + 1; ?>#content-slider" aria-label="Next">
                                 <span aria-hidden="true"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>
                                 <span class="sr-only">Next</span>
                             </a>

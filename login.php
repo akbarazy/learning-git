@@ -23,7 +23,7 @@ if (isset($_SESSION['login'])) {
 }
 
 // logic for users who want to login
-$result = login();
+$resultAlert = login();
 ?>
 
 <!DOCTYPE html>
@@ -70,7 +70,7 @@ $result = login();
     <form action="" method="post" class="form-signin login">
         <h1 class="h3 mb-3 font-weight-normal">LOGIN</h1>
 
-        <?php echo $result; ?>
+        <?php echo $resultAlert; ?>
 
         <div class="input-group mb-0">
             <div class="input-group-prepend">
@@ -100,7 +100,7 @@ $result = login();
             </label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">SIGN IN</button>
         <p class="mt-5">If you haven't registered, Please register</p>
         <p class="mb-3 text-muted">&copy; Copyright | Akbarazy 2022</p>
     </form>

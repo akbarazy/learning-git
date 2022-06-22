@@ -80,14 +80,67 @@ function login()
             } else {
 
                 return '<div class="alert alert-danger" role="alert">
-                    Your password isnt match.
+                    Your password isn\'t match.
                 </div>';
             }
         } else if (mysqli_num_rows($result) === 0) {
 
             return '<div class="alert alert-danger" role="alert">
-                Your name isnt match.
+                Your name isn\'t match.
             </div>';
         }
     }
+}
+
+// logic for image upload
+function uploadImage()
+{
+    $imageName = $_FILES['image']['name'];
+    $tmpName = $_FILES['image']['tmp_name'];
+
+    $formatValid = ["jpg", "jpeg", "png", "webp", "svg"];
+    $formatFile = explode(".", $imageName);
+    $formatFile = strtolower(end($formatFile));
+
+    if (!in_array($formatFile, $formatValid)) {
+        return false;
+    }
+
+    $newImageName = uniqid() . '.' . $formatFile;
+    move_uploaded_file($tmpName, "images/$newImageName");
+    return $newImageName;
+}
+
+// logic to create new list
+function create()
+{
+    global $connect;
+
+    if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
+        $image = uploadImage();
+
+        if ($image === false) {
+            return '<div class="alert alert-danger" role="alert">
+            Your format image isn\'t match.
+        </div>';
+        }
+
+        $date = date('Y-m-d', time());
+        $query = "INSERT INTO userlist VALUES (
+        '', '$date', '$name', '$image'
+    )";
+
+        mysqli_query($connect, $query);
+        return '';
+    }
+}
+
+// logic for delete list
+function delete()
+{
+    global $connect;
+    $userListId = $_GET['delete'];
+
+    mysqli_query($connect, "DELETE FROM userlist WHERE id = $userListId");
 }

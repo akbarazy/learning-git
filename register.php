@@ -9,8 +9,8 @@ if (isset($_SESSION['login'])) {
 }
 
 // logic for users who want to register.
-$result = regist();
-if ($result === '') {
+$resultAlert = regist();
+if ($resultAlert === '') {
     $_SESSION['regist'] = true;
 
     header('location: login.php');
@@ -62,7 +62,7 @@ if ($result === '') {
     <form action="" method="post" class="form-signin mt-5 pt-2 regist">
         <h1 class="h3 mb-3 font-weight-normal">REGISTER</h1>
 
-        <?php echo $result; ?>
+        <?php echo $resultAlert; ?>
 
         <div class="input-group username">
             <div class="input-group-prepend">
@@ -97,7 +97,7 @@ if ($result === '') {
             </label>
         </div>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">REGISTER</button>
         <p class="mt-5">If you already have an account, Please login.</p>
         <p class="mb-3 text-muted">&copy; Copyright | Akbarazy 2022</p>
     </form>
