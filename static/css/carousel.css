@@ -15,11 +15,6 @@ body {
 .carousel-item {
   height: 32rem;
   background-color: #777;
-  /* background-image: url("images/first-slide.jpg");
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: brightness(50%); */
 }
 .carousel-item > img {
   position: absolute;
@@ -92,5 +87,63 @@ body {
 
   .featurette-image {
     width: 270px;
+  }
+}
+
+@media (max-width: 697px) {
+  .container .third-carousel-caption {
+    padding-bottom: 0px !important;
+  }
+
+  .container .third-carousel-caption p {
+    margin-bottom: 15px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .container .third-carousel-caption {
+    padding-bottom: 21px !important;
+  }
+}
+
+@media (max-width: 558px) {
+  .container .third-carousel-caption {
+    padding-bottom: 0px !important;
+  }
+}
+
+@media (max-width: 362px) {
+  .container .first-carousel-caption {
+    padding-bottom: 0px !important;
+  }
+
+  .container .first-carousel-caption p {
+    margin-bottom: 15px !important;
+  }
+
+  .container .second-carousel-caption {
+    padding-bottom: 24px !important;
+  }
+
+  .container .second-carousel-caption p {
+    margin-bottom: 15px !important;
+  }
+}
+
+@media (max-width: 357px) {
+  .container .second-carousel-caption {
+    padding-bottom: 0px !important;
+  }
+}
+
+@media (max-width: 316px) {
+  .container .third-carousel-caption {
+    padding-bottom: 0px !important;
+  }
+}
+
+@media (max-width: 277px) {
+  .container .third-carousel-caption {
+    bottom: 4.6rem !important;
   }
 }

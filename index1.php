@@ -64,25 +64,23 @@ if (isset($_SESSION['login'])) {
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="container">
-                        <div class="carousel-caption text-left">
+                        <div class="carousel-caption first-carousel-caption text-left">
                             <h1>Welcome To My Website</h1>
                             <p>This is a simple website made by us.</p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
                     <div class="container">
-                        <div class="carousel-caption">
+                        <div class="carousel-caption second-carousel-caption">
                             <h1>Welcome To My Website</h1>
                             <p>This is a website to display your list.</p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
                     <div class="container">
-                        <div class="carousel-caption text-right">
+                        <div class="carousel-caption third-carousel-caption text-right">
                             <h1>Welcome To My Website</h1>
                             <p>You can see the list yourself if you have registered later.</p>
                         </div>
