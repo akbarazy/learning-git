@@ -24,7 +24,7 @@ if (!isset($_SESSION['login'])) {
 }
 
 // logic for pagination.
-$totalPagesList = 2;
+$totalPagesList = 10;
 $totalList = count(query("SELECT * FROM userlist"));
 $totalPages = ceil($totalList / $totalPagesList);
 $nowPage = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -123,9 +123,9 @@ if (isset($_GET['delete'])) {
                                 <p class="card-text text-center"><?php echo $userListValueRow['name']; ?></p>
 
                                 <div class="d-flex
-                                <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'flex-column'; ?>
-                                justify-content-between
-                                align-items-center">
+                                    <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'flex-column'; ?>
+                                    justify-content-between
+                                    align-items-center">
 
                                     <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) : ?>
                                         <div class="btn-group">
@@ -135,7 +135,7 @@ if (isset($_GET['delete'])) {
                                     <?php endif; ?>
 
                                     <small class="text-muted mx-auto
-                                    <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'mt-date'; ?>" id="pagination-slider">
+                                        <?php if (isset($_COOKIE['admin']) && isset($_SESSION['admin'])) echo 'mt-date'; ?>" id="pagination-slider">
                                         <?php echo $userListValueRow['date']; ?>
                                     </small>
 
