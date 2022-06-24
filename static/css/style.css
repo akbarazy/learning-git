@@ -2,8 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: "Quicksand", "Arial", sans-serif;
+}
+
 .box-shadow {
-  box-shadow: 0 1px 10px -4px rgba(0, 0, 255, 0.6);
+  box-shadow: 0 1px 8px rgba(0, 0, 255, 0.5);
   border: none;
 }
 
@@ -52,6 +56,7 @@ html {
   object-fit: cover !important;
   height: 110px;
   background-color: #3b3f44;
+  border-radius: 5px 5px 0px 0px !important;
 }
 
 .mt-date {

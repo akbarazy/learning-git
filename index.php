@@ -52,6 +52,9 @@ if (isset($_GET['delete'])) {
     <link rel="stylesheet" href="static/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
@@ -72,7 +75,7 @@ if (isset($_GET['delete'])) {
                     <a class="nav-link" href="index.php?logout=exit">Logout</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Section</a>
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Slider</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown04">
                         <a class="dropdown-item" href="#header-slider">Header</a>
                         <a class="dropdown-item" href="#content-slider">Content</a>
@@ -86,7 +89,7 @@ if (isset($_GET['delete'])) {
                     <a href="create-list.php" class="btn btn-outline-light mr-3 my-sm-0" name="create-list">Create List</a>
                 <?php endif; ?>
 
-                <input class="form-control live-search" type="text" placeholder="Search your name" autofocus>
+                <input class="form-control live-search" type="text" placeholder="Search your name">
             </form>
         </div>
     </nav>

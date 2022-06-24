@@ -165,10 +165,6 @@ function edit()
             }
         }
 
-        var_dump($id);
-        var_dump($name);
-        var_dump($image);
-
         $query = "UPDATE userlist SET
             name = '$name',
             image = '$image'
