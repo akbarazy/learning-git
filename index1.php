@@ -24,7 +24,6 @@ if (isset($_SESSION['login'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 
 <body class="pb-0">
@@ -95,58 +94,54 @@ if (isset($_SESSION['login'])) {
 
         <div class="container marketing">
 
-            <div data-aos="zoom-out">
-                <div class="row">
-                    <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
-                        <img class="rounded-circle my-logo" src="images/logo1.jpeg" alt="my-logo-developer">
-                        <h2>Hello All</h2>
-                        <p>This official website is made by myself. I have provided all the features you need. Please register and login now.</p>
-                        <p><a class="btn btn-lg btn-primary" href="register.php" role="button">Register</a></p>
-                    </div>
+            <div class="row">
+                <div class="col-10 offset-1 col-sm-8 offset-sm-2 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+                    <img class="rounded-circle my-logo" src="images/logo1.jpeg" alt="my-logo-developer">
+                    <h2>Hello All</h2>
+                    <p>This official website is made by myself. I have provided all the features you need. Please register and login now.</p>
+                    <p><a class="btn btn-lg btn-primary" href="register.php" role="button">Register</a></p>
                 </div>
             </div>
 
             <hr class="featurette-divider">
 
-            <div data-aos="fade-left">
-                <div class="row featurette">
-                    <div class="col-md-7">
-                        <h2 class="featurette-heading">Your List Will Be <span class="text-muted">In The Form Of a Card.</span></h2>
-                        <p class="lead">So all registered user lists will be in the form of cards, Not a tables.</p>
-                    </div>
-                    <div class="col-md-5">
-                        <img class="featurette-image img-fluid mx-auto" src="images/first-content-image.svg" alt="first-content-image">
-                    </div>
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Your List Will Be <span class="text-muted">In The Form Of a Card.</span></h2>
+                    <p class="lead">So all registered user lists will be in the form of cards, Not a tables.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image img-fluid mx-auto" src="images/first-content-image.svg" alt="first-content-image">
                 </div>
             </div>
 
             <hr class="featurette-divider">
 
-            <div data-aos="fade-right">
-                <div class="row featurette">
-                    <div class="col-md-7 order-md-2">
-                        <h2 class="featurette-heading">Ease For Users When <span class="text-muted">Registering.</span></h2>
-                        <p class="lead">You do not need to enter your email. Just create a name and password that you like.</p>
-                    </div>
-                    <div class="col-md-5 order-md-1">
-                        <img class="featurette-image no-radius img-fluid mx-auto" src="images/second-content-image.png" alt="second-content-image">
-                    </div>
+
+            <div class="row featurette">
+                <div class="col-md-7 order-md-2">
+                    <h2 class="featurette-heading">Ease For Users When <span class="text-muted">Registering.</span></h2>
+                    <p class="lead">You do not need to enter your email. Just create a name and password that you like.</p>
+                </div>
+                <div class="col-md-5 order-md-1">
+                    <img class="featurette-image no-radius img-fluid mx-auto" src="images/second-content-image.png" alt="second-content-image">
                 </div>
             </div>
+
 
             <hr class="featurette-divider">
 
-            <div data-aos="fade-left">
-                <div class="row featurette">
-                    <div class="col-md-7">
-                        <h2 class="featurette-heading">Convenience Of User Login <span class="text-muted">After Registering.</span></h2>
-                        <p class="lead">What should be entered in the login page? You only need to fill in the login form with your register data.</p>
-                    </div>
-                    <div class="col-md-5">
-                        <img class="featurette-image third-content-image img-fluid mx-auto" src="images/third-content-image.svg" alt="third-content-image">
-                    </div>
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading">Convenience Of User Login <span class="text-muted">After Registering.</span></h2>
+                    <p class="lead">What should be entered in the login page? You only need to fill in the login form with your register data.</p>
+                </div>
+                <div class="col-md-5">
+                    <img class="featurette-image third-content-image img-fluid mx-auto" src="images/third-content-image.svg" alt="third-content-image">
                 </div>
             </div>
+
         </div>
 
     </main>
