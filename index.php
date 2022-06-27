@@ -268,6 +268,16 @@ if (isset($_GET['delete'])) {
     <script src="static/js/jquery-3.6.0.min.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
     <script src="static/ajax/live-search.js"></script>
+    <script>
+        const dropdownItem = document.querySelectorAll('.dropdown-item');
+        dropdownItem.forEach(function(element) {
+            element.addEventListener('click', function(event) {
+
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                navbarCollapse.classList.remove('show');
+            })
+        });
+    </script>
 </body>
 
 </html>
