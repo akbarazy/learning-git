@@ -30,6 +30,8 @@ if ($resultAlert === '') {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="apple-touch-icon" href="images/favicon-apple.png" sizes="180x180" />
+    <link rel="icon" href="images/favicon.png" sizes="32x32" />
 </head>
 
 <body class="text-center">
