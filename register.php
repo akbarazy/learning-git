@@ -62,7 +62,7 @@ if ($resultAlert === '') {
     <!-- end navbar -->
 
 
-    <!-- section login -->
+    <!-- section register -->
 
     <form action="" method="post" class="form-signin mt-5 pt-2 regist">
         <h1 class="h3 mb-3 font-weight-normal">REGISTER</h1>

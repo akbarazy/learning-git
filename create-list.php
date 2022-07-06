@@ -80,7 +80,7 @@ if ($resultAlert === '') {
                     <i class="fa fa-upload" aria-hidden="true"></i>
                 </span>
                 <input type="file" name="image" class="custom-file-input" id="inputGroupFile01" required>
-                <label class="label-upload" for="inputGroupFile01">Choose your image</label>
+                <label class="label-upload" for="inputGroupFile01" style="text-overflow: ellipsis; overflow: hidden; padding-right: 7.5px;">Choose your image</label>
             </div>
 
         </div>
